@@ -23,6 +23,10 @@ $stmt->execute(['id' => $id]);
 </head>
 <body>
     <h1><?=$book['title'];?></h1>
+    <img src="<?=$book['cover_path'];?>">
+    <br>
+    <p><span>Laos:</span> <span><?=$book['stock_saldo'];?></span></p>
+
     Autorid: 
     <?php
     while ($author = $stmt->fetch())
@@ -30,5 +34,9 @@ $stmt->execute(['id' => $id]);
         echo '<li>' . $author['first_name'] . ' ' . $author['last_name'] . '</li>';
     }
     ?>
+    <div>
+        <span><a href="edit.php?id=<?=$id;?>">Muuda</a></span>
+        <span><a href="delete.php?id=<?=$id;?>">Kustuta</a></span>
+    </div>
 </body>
 </html>
