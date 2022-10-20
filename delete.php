@@ -2,10 +2,9 @@
 
 require_once('connection.php');
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 
-$stmt = $pdo->prepare('SELECT * FROM books WHERE id = :id');
+$stmt = $pdo->prepare('UPDATE books SET is_deleted=1 WHERE id = :id');
 $stmt->execute(['id' => $id]);
-$book = $stmt->fetch();
 
-var_dump($book);
+header('Location: index.php');
