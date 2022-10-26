@@ -16,8 +16,13 @@ $stmt = $pdo->query('SELECT * FROM books WHERE is_deleted=0');
 </head>
 <body>
 
-    <nav>
+    <nav style="display: flex; justify-content: space-between;">
         <a href="add_author.php">Lisa autor</a>
+
+        <form action="index.php" method="get">
+            <input type="text" name="q" placeholder="Otsing">
+            <input type="submit" value="Otsi">
+        </form>
     </nav>
 
     <main>

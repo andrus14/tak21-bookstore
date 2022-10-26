@@ -1,14 +1,19 @@
 <?php
 
-// connection
+require_once('connection.php');
 
-// prepare sql INSERT lause
+if ( isset($_POST['add-author']) ) {
 
-// execute sql, kus placeholderid on asendatud
+    $stmt = $pdo->prepare('INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)');
+    $stmt->execute(['first_name' => $_POST['first-name'], 'last_name' => $_POST['last-name']]);
+
+    header('Location: index.php');
+
+}
+
+
 
 // kontrollida Workbenchi abil, kas kirjutati baasi
-
-var_dump($_POST);
 
 ?>
 
